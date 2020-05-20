@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBasic"
+    tools:context=".Main2Activity"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_arrow_back_black_24dp"
+        android:onClick="back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="100dp"
+        android:text="Register"
+        android:textColor="#fff"
+        android:textSize="20dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:textColor="#fff">
+
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            android:layout_marginLeft="40dp"
+            android:inputType="text"/>
+
+
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            android:layout_marginLeft="40dp"
+            android:inputType="text"
+            />
+
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Date of Birth"
+        android:inputType="date"
+        android:layout_marginLeft="40dp"
+        android:focusable="false"
+        android:id="@+id/dateEdit"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:hint="enter your email/username"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/password_btn"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Re-enter password"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/password_btn2"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shapelogin"
+        android:text="Sign up"
+        android:textColor="#fff"
+        android:id="@+id/signup_btn"/>
+
+
+
+</LinearLayout>

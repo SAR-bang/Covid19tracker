@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+android:layout_height="wrap_content"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/caseworldwide"
+    android:layout_gravity="center"
+    android:hint="लोड हुँदैछ..."
+    android:textSize="40dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="संसारभरि सक्रिय केसहरू"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50sp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/nepal" />
+
+            <TextView
+                android:id="@+id/data_nepal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="121dp"
+                android:layout_marginTop="20dp"
+                android:text="..."
+                android:layout_toRightOf="@+id/img"
+                android:gravity="right"
+                android:textSize="50dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/data_nepal"
+                android:layout_marginLeft="100dp"
+                android:layout_toRightOf="@+id/img"
+                android:text="सक्रिय केस"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="50dp"
+        android:background="#33B2ED"
+        android:text="अधिक लोड गर्नुहोस्.."
+        android:id="@+id/adhik"/>
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        android:id="@+id/chart"
+        />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="लक्षण..."
+        android:fontFamily="monospace"
+        android:layout_marginBottom="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/symptomsList"
+      android:orientation="horizontal"
+      />
+
+
+    <!--    code to use the imported data-->
+
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        />
+
+</LinearLayout>
+</ScrollView>

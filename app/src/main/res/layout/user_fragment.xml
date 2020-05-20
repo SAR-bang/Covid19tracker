@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/colorBasic">
+
+        <TextView
+            android:id="@+id/tagtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="40dp"
+            android:text="तपाईंलाई कोरोना भाइरसबाट सुरक्षित राख्न लागि आफैलाई जाँच्नुहोस्।"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/ic_sentiment_satisfied_black_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="100dp"
+            android:text="...................."
+            android:textColor="#ffff"
+            android:textSize="30dp" />
+
+    </FrameLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="80dp"
+        android:text="सबै सुविधाहरू प्राप्त गर्न लग इन गर्नुहोस्" />
+
+    <Button
+        android:id="@+id/btn_to_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorBasic"
+        android:text="साईन ईन गर्नुहोस्"
+        android:textColor="#fff" />
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="हात धुनुहोस् र सुरक्षित रहनुहोस्"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            />
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:src="@drawable/washhand"
+        />
+
+</LinearLayout>
+
+</ScrollView>
