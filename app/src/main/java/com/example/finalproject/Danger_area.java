@@ -18,7 +18,7 @@ public class Danger_area extends AppCompatActivity {
 
     ListView list;
     String tag[] = {"ambulance", "police"};
-    long[] number = {+988864554, +988864645};
+    int[] number = {+988864554, +988864645};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

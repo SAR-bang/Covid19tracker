@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Danger_area">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="cursive"
-                android:text="Impact in Nepal identify your risk"
-                android:textSize="20dp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="cursive"
+            android:text="Impact in Nepal identify your risk"
+            android:textSize="20dp" />
 
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:src="@mipmap/ic_launcher" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:src="@mipmap/ic_launcher" />
 
-        </LinearLayout>
+    </LinearLayout>
 
 
         <androidx.cardview.widget.CardView
@@ -87,18 +84,14 @@
             />
 
         <ListView
+            android:id="@+id/contact_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/contact_id"/>
-
-
-        <TextView
+            android:layout_height="299dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginRight="40sp" />
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="If you have any queries mail us at nepal@gov.np"/>
+            android:layout_height="wrap_content"
+            android:text="If you have any queries then contact us at info@adarsha.com"/>
 
     </LinearLayout>
-
-</ScrollView>

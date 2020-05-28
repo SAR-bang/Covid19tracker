@@ -14,10 +14,10 @@ public class adaptercontact extends ArrayAdapter<String> {
 
     private Activity context;
     private String[] tag;
-    private long[] number;
+    private int[] number;
 
 
-    public adaptercontact(Activity context, String[] data, long[] number) {
+    public adaptercontact(Activity context, String[] data, int[] number) {
         super(context, R.layout.contact_details, data);
         this.context = context;
         this.number = number;
@@ -28,10 +28,10 @@ public class adaptercontact extends ArrayAdapter<String> {
 
         LayoutInflater inflater = context.getLayoutInflater();
         View small = inflater.inflate(R.layout.contact_details, null, true);
-        TextView contactd = small.findViewById(R.id.contact_id);
+        TextView contactd = small.findViewById(R.id.details_id);
         TextView num = small.findViewById(R.id.number_id);
         contactd.setText(tag[pos]);
-        num.setText((int) number[pos]);
+        num.setText(String.valueOf(number[pos]));
         return small;
     }
 

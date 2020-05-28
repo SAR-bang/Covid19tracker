@@ -58,7 +58,7 @@ public  class MainActivity extends AppCompatActivity {
                                 finish();
 
                             }else{
-                                Toast.makeText(MainActivity.this,task.getException().getMessage(),Toast.LENGTH_SHORT);
+                                Toast.makeText(MainActivity.this,"Use correct credentials and check connection",Toast.LENGTH_SHORT);
                             }
                         }
                     });
