@@ -122,10 +122,14 @@ public class Main2Activity extends AppCompatActivity {
 
 
                 //initializing the FirebaseAuth instance
+                try {
 
-                mAuth = FirebaseAuth.getInstance();
-                firebaseDatabase = FirebaseDatabase.getInstance();
-                databaseReference = firebaseDatabase.getReference();
+                    mAuth = FirebaseAuth.getInstance();
+                    firebaseDatabase = FirebaseDatabase.getInstance();
+                    databaseReference = firebaseDatabase.getReference();
+                }catch(Exception e){
+                    Toast.makeText(Main2Activity.this,"Email already exists",Toast.LENGTH_LONG);
+                }
 
                 // creating a user for authentication puropose
 

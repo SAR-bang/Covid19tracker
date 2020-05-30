@@ -2,4 +2,7 @@
     <string name="app_name">FinalProject</string>
     <string name="start">सँगै हामी कोरोना हराउन सक्छौंं</string>
     <string name="start2">कोरोनाको बारेमा विवरण जान्न सदस्यता लिनुहोस्</string>
+    <string name="safe">Currently you  are safe but need to be aware and help the country. Always allow location for your app </string>
+    <string name="danger">Currently you belong to the danger zone so stay inside</string>
+
 </resources>

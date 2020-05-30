@@ -64,38 +64,6 @@ public class statisticsfragment extends Fragment {
 
         btnAboutUs = viewstat.findViewById(R.id.aboutUs);
         //dialog = new Dialog(MainActivity.this);
-        etQuery.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!etQuery.getText().toString().equals("")) {
-                    swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                        @Override
-                        public void onRefresh() {
-                            getResponse(etQuery.getText().toString());
-                        }
-                    });
-                    getResponse(etQuery.getText().toString());
-                } else {
-                    swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                        @Override
-                        public void onRefresh() {
-                            getResponse("");
-                        }
-                    });
-                    getResponse("");
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
         //
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

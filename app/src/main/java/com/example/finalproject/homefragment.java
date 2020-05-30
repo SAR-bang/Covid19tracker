@@ -123,8 +123,8 @@ public class homefragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
-
+                Toast.makeText(getContext(),"Internet connection failed",Toast.LENGTH_SHORT);
+                // showing previously stored data
                 SharedPreferences sp = getActivity().getSharedPreferences(worldPreferences, Context.MODE_PRIVATE);
                 global.setText(sp.getString(casesT, ""));
             }

@@ -173,8 +173,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contact"
-                android:id="@+id/contact_text"
+                android:text="Phone doctor"
+                android:id="@+id/recommend_text"
                 />
 
         </LinearLayout>

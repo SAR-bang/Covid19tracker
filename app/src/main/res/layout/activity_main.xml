@@ -21,7 +21,7 @@
         android:layout_height="150dp"
         android:layout_marginBottom="80dp"
         android:layout_marginTop="50dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/police"
         android:id="@+id/login"
         android:layout_marginLeft="60dp"
         />

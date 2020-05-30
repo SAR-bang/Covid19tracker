@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".Detailed"></activity>
+        <activity android:name=".News"></activity>
+        <activity android:name=".Detailed" />
         <activity android:name=".Danger_area" />
         <activity android:name=".Profile" />
         <activity android:name=".SplashScreen">

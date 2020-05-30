@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".News">
+
+
+    <VideoView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
+        android:id="@+id/video_id"
+        />
+
+    <Button
+        android:layout_below="@+id/video_id"
+        android:id="@+id/play_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="play"/>
+    <Button
+        android:layout_below="@+id/video_id"
+        android:layout_toRightOf="@id/play_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pause_id"
+        android:text="pause"
+        />
+</RelativeLayout>

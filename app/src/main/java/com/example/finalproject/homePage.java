@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -27,6 +31,7 @@ public class homePage extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment selectedFragment = null;
+            int i=0;
 
             switch (item.getItemId())
             {
@@ -37,12 +42,29 @@ public class homePage extends AppCompatActivity {
                     selectedFragment = new statisticsfragment();
                     break;
                 case R.id.user:
+                    i=10;
                     selectedFragment = new userfragment();
                     break;
+
             }
 
-            // displaying the selected fragment
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_id,selectedFragment).commit();
+
+            SharedPreferences sharedPreferences =getSharedPreferences(MainActivity.LoginPreferences, Context.MODE_PRIVATE);
+            if ((sharedPreferences.getString("username", "").equals(""))) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_id,selectedFragment).commit();
+                // this shows the selected fragment
+
+
+            }else {
+                if(i==10){
+                    startActivity(new Intent(homePage.this, Profile.class));
+                }else{
+
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_id,selectedFragment).commit();
+                    // this shows the selected fragment
+                }
+
+            }
             return true;
         }
     };
