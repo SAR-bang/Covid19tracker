@@ -14,6 +14,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -40,7 +41,7 @@ public class Danger_area extends AppCompatActivity {
 
 
         // if the user is in red zone this is displayed as :
-        if(zone.equalsIgnoreCase("Red")) {
+        if(zone.equalsIgnoreCase("Green")) {
             status.setText(R.string.danger);
             cardView.setCardBackgroundColor(getColor(R.color.red));
         }else{
@@ -52,6 +53,7 @@ public class Danger_area extends AppCompatActivity {
         adaptercontact adaptercontact = new adaptercontact(this,tag,number);
         list = findViewById(R.id.contact_id);
         list.setAdapter(adaptercontact);
+
 
     }
 }

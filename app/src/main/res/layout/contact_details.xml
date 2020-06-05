@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:layout_margin="30dp"
+    android:layout_margin="50dp"
     >
     <TextView
         android:layout_width="wrap_content"
@@ -21,5 +21,13 @@
         android:id="@+id/number_id"
         android:layout_marginLeft="20dp"
         />
+
+    <ImageButton
+        android:layout_marginLeft="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
+        android:id="@+id/phone"
+        android:background="@drawable/ic_local_phone_black_24dp"/>
 
 </LinearLayout>
