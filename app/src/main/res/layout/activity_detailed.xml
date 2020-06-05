@@ -68,7 +68,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/g_light"
-                                android:text="Source"
+                                android:text="Worldom."
                                 android:textColor="@color/white"
                                 android:textSize="15dp"
                                 android:layout_marginLeft="300dp"/>
@@ -103,7 +103,7 @@
             </androidx.cardview.widget.CardView>
 
             <GridLayout
-                android:layout_marginLeft="70dp"
+                android:layout_marginLeft="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:rowCount="3"

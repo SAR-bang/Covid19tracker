@@ -45,12 +45,12 @@ android:layout_height="wrap_content"
                 android:id="@+id/data_nepal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="121dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="60dp"
                 android:text="..."
                 android:layout_toRightOf="@+id/img"
                 android:gravity="right"
-                android:textSize="50dp" />
+                android:textSize="30dp" />
 
             <TextView
                 android:layout_width="wrap_content"
