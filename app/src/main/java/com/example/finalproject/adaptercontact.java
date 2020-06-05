@@ -10,11 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 public class adaptercontact extends ArrayAdapter<String> {
 
@@ -40,27 +43,8 @@ public class adaptercontact extends ArrayAdapter<String> {
 
         contactd.setText(tag[pos]);
         num.setText(String.valueOf(number[pos]));
-        final int position = pos;
-        phone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // making a call by starting the intent
-
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse(String.valueOf(number[position])));
-
-                // method to get the permission from the user
-                if (ActivityCompat.checkSelfPermission(getContext(),
-                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    return;
-                }
-                getContext().startActivity(callIntent);
-            }
-        });
-//            }
         return small;
     }
 
-    ;
 
 }

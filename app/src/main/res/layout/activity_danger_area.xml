@@ -9,78 +9,86 @@
     tools:context=".Danger_area">
 
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="cursive"
+        android:text="Impact in Nepal identify your risk"
+        android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/textView"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/userstatus"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="cursive"
-            android:text="Impact in Nepal identify your risk"
-            android:textSize="20dp" />
+            android:orientation="horizontal">
 
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="30dp"
-            android:id="@+id/userstatus"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_width="match_parent"
-            app:cardBackgroundColor="@color/green"
-            android:layout_height="150dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="20dp"
                 android:background="@drawable/gradient"
-                android:src="@drawable/userpp"/>
+                android:src="@drawable/userpp" />
 
             <TextView
+                android:id="@+id/status_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:textAlignment="center"
-                android:id="@+id/status_id"
-                />
+                android:textAlignment="center" />
 
-            </LinearLayout>
+        </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="30dp"
-            android:text="Please check app regularly to stay updated"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:text="Please check app regularly to stay updated" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="40dp"
-            android:text="Covid 19 Helpline"
-            android:drawableLeft="@drawable/ic_message_black_24dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="If you have any queries then contact us at email  i.e. info@adarsha.com"
+        android:textColor="@color/mobitexter_main_color" />
 
-            />
 
-        <ListView
-            android:id="@+id/contact_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40sp"
-            android:layout_marginBottom="50dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/transparent_grey_overlay"
+        android:text="Covid 19 Helpline Numbers"
+        android:textColor="@color/whitesmoke"
+        android:clickable="false"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="If you have any queries then contact us at info@adarsha.com"/>
 
-    </LinearLayout>
+    <ListView
+        android:id="@+id/contact_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:dividerHeight="10dp"
+        android:divider="@color/whitesmoke"
+        android:background="@color/whitesmoke"/>
+
+
+</LinearLayout>

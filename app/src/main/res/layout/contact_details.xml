@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:layout_margin="50dp"
+    android:descendantFocusability="blocksDescendants"
+    android:rowCount="1"
+    android:columnCount="3"
     >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:text="con"
         android:textStyle="bold"
+        android:layout_columnWeight="2"
+        android:layout_column="0"
         android:id="@+id/details_id"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="99"
+        android:layout_column="1"
+        android:layout_columnWeight="2"
         android:id="@+id/number_id"
-        android:layout_marginLeft="20dp"
         />
 
     <ImageButton
-        android:layout_marginLeft="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/green"
         android:id="@+id/phone"
-        android:background="@drawable/ic_local_phone_black_24dp"/>
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_row="0"
+        android:layout_column="2"
+        android:layout_columnWeight="0"
+        android:background="@drawable/ic_local_phone_black_24dp"
+        android:backgroundTint="@color/green"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
 
-</LinearLayout>
+</GridLayout>
