@@ -137,7 +137,8 @@ public class statisticsfragment extends Fragment {
 
                 @Override
                 public void onFailure(Call<List<ApiModel>> call, Throwable t) {
-                    Toast.makeText(getContext(), t.getMessage().toString(), Toast.LENGTH_LONG).show();
+                    swipeRefreshLayout.setRefreshing(false);
+                    Toast.makeText(getContext(), "Internet connection Required", Toast.LENGTH_LONG).show();
                 }
             });
         } else  {

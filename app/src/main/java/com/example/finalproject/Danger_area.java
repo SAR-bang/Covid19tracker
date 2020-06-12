@@ -32,6 +32,7 @@ public class Danger_area extends AppCompatActivity {
     TextView status;
     SharedPreferences sp;
     CardView cardView;
+    Intent callIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +47,17 @@ public class Danger_area extends AppCompatActivity {
 
 
         // if the user is in red zone this is displayed as :
-        if (zone.equalsIgnoreCase("Green")) {
+        if (zone.equalsIgnoreCase("red")) {
 
-            status.setText(R.string.safe);
-            cardView.setCardBackgroundColor(getColor(R.color.green));
-        } else {
-            // for yellow and green zone
+            status.setTextColor(getColor(R.color.white));
             status.setText(R.string.danger);
             cardView.setCardBackgroundColor(getColor(R.color.red));
+
+        } else {
+            // for yellow and green zone
+            status.setTextColor(getColor(R.color.white));
+            status.setText(R.string.safe);
+            cardView.setCardBackgroundColor(getColor(R.color.green));
         }
 
         adaptercontact adaptercontact = new adaptercontact(this, tag, number);
@@ -65,26 +69,53 @@ public class Danger_area extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    Intent callIntent = new Intent(Intent.ACTION_CALL);
-                    callIntent.setData(Uri.parse("tel:" + number[position]));
+                callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + number[position]));
 
-                    if (ContextCompat.checkSelfPermission(view.getContext(),
-                            Manifest.permission.CALL_PHONE)
-                            != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(
-                                Danger_area.this,
-                                new String[]{Manifest.permission.CALL_PHONE},
-                                100);
-                    }
-
-                    // for granted permission make a call
                 if (ContextCompat.checkSelfPermission(view.getContext(),
                         Manifest.permission.CALL_PHONE)
-                        == PackageManager.PERMISSION_GRANTED){startActivity(callIntent);}
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(
+                            Danger_area.this,
+                            new String[]{Manifest.permission.CALL_PHONE},
+                            100);
+                }
+
+                // for granted permission make a call
+                if (ContextCompat.checkSelfPermission(view.getContext(),
+                        Manifest.permission.CALL_PHONE)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    startActivity(callIntent);
+                }
 
 
             }
         });
+
+    }
+
+
+    //     on request granted the phone call is made else the toast message is shown
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super
+                .onRequestPermissionsResult(requestCode,
+                        permissions,
+                        grantResults);
+
+        if (requestCode == 100) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                startActivity(callIntent);
+            } else {
+                Toast.makeText(Danger_area.this,
+                        "Phone call Permission Denied",
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+        }
 
     }
 }

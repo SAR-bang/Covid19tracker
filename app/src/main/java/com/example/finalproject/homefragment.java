@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -105,6 +106,7 @@ public class homefragment extends Fragment {
         StringRequest stringRequest2 = new StringRequest(Request.Method.GET, url2, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 GsonBuilder gsonBuilder = new GsonBuilder();
                 Gson gson = gsonBuilder.create();
                 Parsing2Clas globalClass = gson.fromJson(response, Parsing2Clas.class);
@@ -123,8 +125,8 @@ public class homefragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(),"Internet connection failed",Toast.LENGTH_SHORT);
-                // showing previously stored data
+//                Toast.makeText(getContext(),"Internet connection failed",Toast.LENGTH_SHORT);
+//                // showing previously stored data
                 SharedPreferences sp = getActivity().getSharedPreferences(worldPreferences, Context.MODE_PRIVATE);
                 global.setText(sp.getString(casesT, ""));
             }
@@ -147,8 +149,9 @@ public class homefragment extends Fragment {
 
 
                 sharedPreferences = view.getContext().getSharedPreferences(NepalPreferences, Context.MODE_PRIVATE);
-                // Saving the data in cache
 
+
+                // Saving the data in cache
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString(countryNamet, "Nepal");
                 editor.putString(casesT, cases);
@@ -158,7 +161,19 @@ public class homefragment extends Fragment {
 
                 editor.commit();     //commit saves the data in the cache
 
+
+                // retrieving the data from cache to notify user if data is added
+//                try{
+                if (Long.parseLong(sharedPreferences.getString(casesT, "")) == apiModel.getCases()) {
+                    notifyuser(Long.parseLong(sharedPreferences.getString(casesT, "")) - apiModel.getCases());
+
+                }
+//                }catch (Exception e)
+//                {}
+
             }
+
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -184,7 +199,6 @@ public class homefragment extends Fragment {
         imagesList.add(new images(R.drawable.shrtnes, "सास फेर्न गाह्रो"));
         imagesList.add(new images(R.drawable.cgh, "खोकी"));
         imagesList.add(new images(R.drawable.fvr, "१०२ डिग्री माथि ताप"));
-
         imagesList.add(new images(R.drawable.shrtnes, "सास फेर्न गाह्रो"));
 
         imgadapter = new AdapterRV(getActivity().getApplicationContext(), imagesList);
@@ -231,6 +245,13 @@ public class homefragment extends Fragment {
             pieChart.setRotationEnabled(false);
     }
 
+    private void notifyuser(long l) {
+
+        Intent intent = new Intent(getActivity().getBaseContext(), Aservice.class);
+        intent.putExtra("new", l + "");
+
+        getActivity().startService(intent);
+    }
 }
 
 

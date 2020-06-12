@@ -66,14 +66,14 @@ android:layout_height="wrap_content"
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/adhik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="50dp"
         android:background="#33B2ED"
-        android:text="अधिक लोड गर्नुहोस्.."
-        android:id="@+id/adhik"/>
+        android:text="अधिक लोड गर्नुहोस्.." />
 
     <com.github.mikephil.charting.charts.PieChart
         android:layout_width="0dp"
