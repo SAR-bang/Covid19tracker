@@ -133,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:text="आफूलाई र समाजको रक्षा गर्नुहोस्" />
+            android:text="यदि तपाईं माथि समस्या छ भने डाक्टरलाई सम्पर्क गर्नुहोस्" />
 
 
         <TextView
@@ -146,6 +146,12 @@
             android:text="आफूलाई र समाजको रक्षा गर्नुहोस्"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:textStyle="bold"
+            android:text="सुरक्षित रणनीति" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/preventionlist"
