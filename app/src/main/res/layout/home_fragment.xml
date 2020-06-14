@@ -129,15 +129,21 @@
             android:focusable="false"
             android:orientation="horizontal" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:text="आफूलाई र समाजको रक्षा गर्नुहोस्" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="monospace"
-            android:text="Preventive measures..."
+            android:text="आफूलाई र समाजको रक्षा गर्नुहोस्"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 

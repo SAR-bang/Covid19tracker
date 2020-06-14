@@ -23,18 +23,17 @@ public class homePage extends AppCompatActivity {
 
         navigationView = findViewById(R.id.nav_bottom_id);
         navigationView.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_id,new homefragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_id, new homefragment()).commit();
 
     }
 
-    BottomNavigationView.OnNavigationItemSelectedListener navListener =  new BottomNavigationView.OnNavigationItemSelectedListener() {
+    BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment selectedFragment = null;
-            int i=0;
+            int i = 0;
 
-            switch (item.getItemId())
-            {
+            switch (item.getItemId()) {
                 case R.id.home_id:
                     selectedFragment = new homefragment();
                     break;
@@ -42,25 +41,25 @@ public class homePage extends AppCompatActivity {
                     selectedFragment = new statisticsfragment();
                     break;
                 case R.id.user:
-                    i=10;
+                    i = 10;
                     selectedFragment = new userfragment();
                     break;
 
             }
 
 
-            SharedPreferences sharedPreferences =getSharedPreferences(MainActivity.LoginPreferences, Context.MODE_PRIVATE);
+            SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.LoginPreferences, Context.MODE_PRIVATE);
             if ((sharedPreferences.getString("username", "").equals(""))) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_id,selectedFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_id, selectedFragment).commit();
                 // this shows the selected fragment
 
 
-            }else {
-                if(i==10){
+            } else {
+                if (i == 10) {
                     startActivity(new Intent(homePage.this, Profile.class));
-                }else{
+                } else {
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_id,selectedFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_id, selectedFragment).commit();
                     // this shows the selected fragment
                 }
 

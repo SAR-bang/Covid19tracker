@@ -112,10 +112,12 @@ public class Profile extends AppCompatActivity {
                 // fro a  callback
                 Kommunicate.openConversation(Profile.this, null, new KmCallback() {
                     @Override
-                    public void onSuccess(Object message) {}
+                    public void onSuccess(Object message) {
+                    }
 
                     @Override
-                    public void onFailure(Object error) {}
+                    public void onFailure(Object error) {
+                    }
                 });
 
 

@@ -15,15 +15,16 @@ public class userfragment extends Fragment {
 
     Button btn;
     View view;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.user_fragment,container , false);
+        view = inflater.inflate(R.layout.user_fragment, container, false);
         btn = view.findViewById(R.id.btn_to_sign);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),MainActivity.class));
+                startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
         return view;

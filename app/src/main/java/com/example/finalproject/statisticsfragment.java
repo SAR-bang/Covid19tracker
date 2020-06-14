@@ -55,9 +55,9 @@ public class statisticsfragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View viewstat = inflater.inflate(R.layout.stat_fragment,container , false);
+        View viewstat = inflater.inflate(R.layout.stat_fragment, container, false);
 
-        swipeRefreshLayout =viewstat.findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout = viewstat.findViewById(R.id.swipeRefresh);
 
         rv = viewstat.findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(viewstat.getContext()));
@@ -104,7 +104,6 @@ public class statisticsfragment extends Fragment {
         });
 
 
-
         return viewstat;
     }
 
@@ -132,6 +131,7 @@ public class statisticsfragment extends Fragment {
 
                         apiModelList = new ArrayList<>(response.body());
                         adapterClas = new AdapterClas(getContext(), apiModelList);
+                        // attaching the adapter class
                         rv.setAdapter(adapterClas);
                     }
                 }
@@ -143,14 +143,17 @@ public class statisticsfragment extends Fragment {
                     Toast.makeText(getContext(), "Internet connection Required", Toast.LENGTH_LONG).show();
                 }
             });
-        } else  {
 
-            //
+        } else {
+
+            // making query based upon country
+
             call2 = apiInterface.getSpecificData(query);
             call2.enqueue(new Callback<ApiModel>() {
                 @Override
                 public void onResponse(Call<ApiModel> call2, Response<ApiModel> response) {
                     swipeRefreshLayout.setRefreshing(false);
+//                    for not null response
                     if (response.body() != null) {
                         ApiModel apimodel = response.body();
                         adapterClas = new AdapterClas(getContext(), apimodel);

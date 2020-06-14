@@ -62,6 +62,8 @@ public class homefragment extends Fragment {
     String Death = "";
     TextView global;
 
+    private ArrayList<images> imagesList2 = new ArrayList<>();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -209,7 +211,6 @@ public class homefragment extends Fragment {
         /// Now creating a recycler view to show the symptoms
 
         final RecyclerView rv = view.findViewById(R.id.symptomsList);
-
         imagesList.add(new images(R.drawable.cgh, "खोकी"));
         imagesList.add(new images(R.drawable.fvr, "१०२ डिग्री माथि ताप"));
 
@@ -228,15 +229,14 @@ public class homefragment extends Fragment {
 
         // for second recycler view
         final RecyclerView rv2 = view.findViewById(R.id.preventionlist);
-        imagesList.clear();
-        imagesList.add(new images(R.drawable.cgh, "खोकी"));
-        imagesList.add(new images(R.drawable.fvr, "१०२ डिग्री माथि ताप"));
-        imagesList.add(new images(R.drawable.shrtnes, "सास फेर्न गाह्रो"));
-        imagesList.add(new images(R.drawable.cgh, "खोकी"));
-        imagesList.add(new images(R.drawable.fvr, "१०२ डिग्री माथि ताप"));
-        imagesList.add(new images(R.drawable.shrtnes, "सास फेर्न गाह्रो"));
+        imagesList2.add(new images(R.drawable.p1, "बारम्बार हात धुनुहोस्"));
+        imagesList2.add(new images(R.drawable.p2, "मास्क लगाउनुहोस्"));
+        imagesList2.add(new images(R.drawable.p3, "घरमै बस"));
+        imagesList2.add(new images(R.drawable.p4, "कीटाणुरहित"));
+        imagesList2.add(new images(R.drawable.p1, "बारम्बार हात धुनुहोस्"));
+        imagesList2.add(new images(R.drawable.p2, "मास्क लगाउनुहोस्"));
 
-        imgadapter = new AdapterRV(getActivity().getApplicationContext(), imagesList);
+        imgadapter = new AdapterRV(getActivity().getApplicationContext(), imagesList2);
 
         rv2.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         view.findViewById(R.id.img_id);

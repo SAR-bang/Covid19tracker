@@ -6,7 +6,6 @@ public class images {
     private String title;
 
 
-
     public images(int imageUrl, String title) {
         this.imageUrl = imageUrl;
         this.title = title;
@@ -15,6 +14,7 @@ public class images {
     public String getTitle() {
         return title;
     }
+
     public int getImageUrl() {
         return imageUrl;
     }
