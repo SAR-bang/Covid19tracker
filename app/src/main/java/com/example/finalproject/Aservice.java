@@ -26,10 +26,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Aservice extends Service {
+// service for running background task to show the notifications
+    // mobile such as huawei xiaomi has properties as protected apps so background notification may be destroyed in developer mode
 
 
     private Timer timer = new Timer();
     // to check the app contiuosly
+
 
     SharedPreferences sharedPreferences;
     long newdata = 0;
@@ -48,7 +51,6 @@ public class Aservice extends Service {
             @Override
             public void run() {
                 // when the data changes the notification is send to user
-
                 if (getdata() > 0) {
                     notifyuser(getdata());
                 }
@@ -56,10 +58,13 @@ public class Aservice extends Service {
         }, 0, 1 * 10 * 1000);   // checks every 10 seconds
     }
 
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         newdata = getdata();
         notifyuser(newdata);
+
         // calling the method to notify user
 
         return START_STICKY;
@@ -73,15 +78,14 @@ public class Aservice extends Service {
         // channel id is required as passing only the service is deprecated
 
         mBuilder.setContentTitle("Corona nepal update");
-        newdata = getdata();
-
         // if the data is changed then show above if case statement else else condition to be shown
 
-        if (newdata != 0) {
+        if (data != 0) {
             mBuilder.setContentText("the new data is" + newdata);
         } else {
             mBuilder.setContentText("No new case added");
         }
+
         mBuilder.setSmallIcon(R.drawable.ic_notifications_active_black_24dp);
 
 
@@ -103,6 +107,7 @@ public class Aservice extends Service {
     long nu = 0;
 
     // method to return the difference between saved data and new updated cases
+
 
     private long getdata() {
         // using the combination of volley and gson to retrieve the data
@@ -133,6 +138,8 @@ public class Aservice extends Service {
 
                     editor.putString("Confirmed", cases);
                     editor.commit();     //commit saves the data in the cache
+                } else {
+                    newdata = apiModel.getCases();
                 }
 
 
@@ -156,6 +163,7 @@ public class Aservice extends Service {
         super.onDestroy();
         Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show();
     }
+
 
     @Nullable
     @Override

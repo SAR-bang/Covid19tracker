@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -48,4 +49,15 @@ public class NewsDetail extends AppCompatActivity {
         Picasso.with(NewsDetail.this).load(imageurl).into(imageView);
         bar.setEnabled(false);
     }
+
+
+    public void menu(View view) {
+        startActivity(new Intent(NewsDetail.this, Profile.class));
+    }
+
+
+    public void back(View view) {
+        startActivity(new Intent(NewsDetail.this, News.class));
+    }
+
 }

@@ -39,9 +39,11 @@ public class adapterNews extends RecyclerView.Adapter<adapterNews.ViewHolder> {
         return new ViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+//        Binder method is used to bind the data with the respective views
 
         newsModel = news2Models.getData().get(position);
 
@@ -55,6 +57,8 @@ public class adapterNews extends RecyclerView.Adapter<adapterNews.ViewHolder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // passing the data between the intents
+
                 Intent intent = new Intent(context, NewsDetail.class);
                 intent.putExtra("Source", newsModel.getSource());
                 intent.putExtra("date", newsModel.getCreatedAt());
@@ -67,6 +71,7 @@ public class adapterNews extends RecyclerView.Adapter<adapterNews.ViewHolder> {
 
     }
 
+
     @Override
     public int getItemCount() {
         return news2Models.getData().size();
@@ -77,6 +82,8 @@ public class adapterNews extends RecyclerView.Adapter<adapterNews.ViewHolder> {
         CardView cardView;
         ImageView imageCountry;
 
+
+        // working with the views
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

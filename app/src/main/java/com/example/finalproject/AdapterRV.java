@@ -19,9 +19,9 @@ public class AdapterRV extends RecyclerView.Adapter<AdapterRV.RecyclingViewHolde
     private Context context;
     private ArrayList<images> imglist;
 
-    public AdapterRV(Context context,ArrayList<images> img ){
-    this.context = context;
-    this.imglist = img;
+    public AdapterRV(Context context, ArrayList<images> img) {
+        this.context = context;
+        this.imglist = img;
     }
 
 
@@ -29,17 +29,17 @@ public class AdapterRV extends RecyclerView.Adapter<AdapterRV.RecyclingViewHolde
     @Override
     public AdapterRV.RecyclingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.cardviewlayout,parent,false);
+        View view = layoutInflater.inflate(R.layout.cardviewlayout, parent, false);
 
         return new RecyclingViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclingViewHolder holder, int position) {
-
         holder.imageView.setImageResource(imglist.get(position).getImageUrl());
         holder.title.setText(imglist.get(position).getTitle());
     }
+
 
     @Override
     public int getItemCount() {
@@ -47,22 +47,18 @@ public class AdapterRV extends RecyclerView.Adapter<AdapterRV.RecyclingViewHolde
     }
 
 
-
-
 // view holder is used to show the data in xml
 
-public class RecyclingViewHolder extends RecyclerView.ViewHolder
-{
 
-    ImageView imageView;
-    TextView title;
+    public class RecyclingViewHolder extends RecyclerView.ViewHolder {
 
-    public RecyclingViewHolder(@NonNull View itemView) {
-        super(itemView);
-        imageView = itemView.findViewById(R.id.img_id);
-        title = itemView.findViewById(R.id.title_id);
+        ImageView imageView;
+        TextView title;
 
-
+        public RecyclingViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imageView = itemView.findViewById(R.id.img_id);
+            title = itemView.findViewById(R.id.title_id);
+        }
     }
-}
 }

@@ -25,6 +25,7 @@ public class adaptercontact extends ArrayAdapter<String> {
     private String[] tag;
     private int[] number;
 
+    // adapter class for contact list
 
     public adaptercontact(Activity context, String[] data, int[] number) {
         super(context, R.layout.contact_details, data);

@@ -19,13 +19,15 @@
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/back" />
+            android:src="@drawable/back"
+            android:onClick="back" />
 
         <ImageButton
             android:layout_width="35dp"
             android:layout_height="30dp"
             android:layout_marginLeft="320dp"
             android:src="@drawable/menu"
+            android:onClick="menu"
             android:background="@color/whitesmoke" />
     </LinearLayout>
 

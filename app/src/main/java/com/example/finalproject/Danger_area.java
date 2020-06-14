@@ -27,12 +27,13 @@ public class Danger_area extends AppCompatActivity {
 
 
     ListView list;
-    String tag[] = {"ambulance", "police", "Doctor Consult"};
-    int[] number = {+988864554, +988864645, +071555555};
+    String tag[] = {"ambulance", "police", "Doctor Consult", "local leader"};
+    int[] number = {+988864554, +988864645, +07155555555, +78587575};
     TextView status;
     SharedPreferences sp;
     CardView cardView;
     Intent callIntent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

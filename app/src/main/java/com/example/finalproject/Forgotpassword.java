@@ -44,7 +44,7 @@ public class Forgotpassword extends AppCompatActivity {
                                     message.setVisibility(View.VISIBLE);
                                 } else {
                                     // error loading phase
-                                    message.setText("Error found sending the link you are not registered");
+                                    message.setText("Error found sending the link. you are not registered");
                                     message.setVisibility(View.VISIBLE);
                                 }
                             }

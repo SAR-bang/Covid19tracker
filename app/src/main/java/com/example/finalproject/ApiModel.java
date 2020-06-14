@@ -1,6 +1,9 @@
 package com.example.finalproject;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+// model class for json parsing
 
 public class ApiModel {
     @SerializedName("updated")
