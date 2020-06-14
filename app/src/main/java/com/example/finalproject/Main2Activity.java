@@ -149,7 +149,7 @@ public class Main2Activity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // sign in success, redirecting to sign in page
-                            Toast.makeText(Main2Activity.this, "Sign up complete.",
+                            Toast.makeText(Main2Activity.this, "Registration complete.",
                                     Toast.LENGTH_SHORT).show();
 
 
