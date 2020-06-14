@@ -8,11 +8,16 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageSwitcher;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,15 +38,14 @@ import java.util.Locale;
 
 public class Main2Activity extends AppCompatActivity {
 
-    private EditText date, username, password, FirstName, MiddleName, LastName, phone_number;
+    private EditText date, username, password, password2, name;
     private Button signup_btn;
     private FirebaseAuth mAuth;      // user login authentication
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
-
-    private String TAG = "EMailPAssword";
+    private ImageButton imageSwitcher, imageSwitcher2;
     private String username_save, Name, password_save;
-    private String phone_save;
+    boolean showpass = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +89,10 @@ public class Main2Activity extends AppCompatActivity {
         username = findViewById(R.id.username);
         signup_btn = findViewById(R.id.signup_btn);
         password = findViewById(R.id.password_btn);
-        FirstName = findViewById(R.id.first_name);
-        LastName = findViewById(R.id.last_name);
-
-
+        name = findViewById(R.id.full_name);
+        imageSwitcher = findViewById(R.id.imageswitcher_1);
+        imageSwitcher2 = findViewById(R.id.imageswitcher_2);
+        password2 = findViewById(R.id.password_btn2);
 
 
         // Working with registration
@@ -97,15 +101,17 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 username_save = username.getText().toString().trim();
-                Name = (FirstName.getText().toString() + LastName.getText().toString()).trim();
+
+                Name = (name.getText().toString().trim());
+
                 password_save = password.getText().toString().trim();
 
                 if (username_save.isEmpty()) {
-                    username.setError("username is required");
+                    username.setError("Email address is required");
                     return;
                 }
                 if (Name.isEmpty()) {
-                    LastName.setError("Name is required");
+                    name.setError("Name is required");
                     return;
                 }
                 if (password_save.isEmpty()) {
@@ -118,6 +124,11 @@ public class Main2Activity extends AppCompatActivity {
                 }
                 if (password_save.length() < 8) {
                     password.setError("Must be 8 characters long");
+                    return;
+                }
+                if (!password_save.equals(password2.getText().toString().trim())) {
+                    password.setError("Passwords does not match");
+                    return;
                 }
 
 
@@ -127,8 +138,8 @@ public class Main2Activity extends AppCompatActivity {
                     mAuth = FirebaseAuth.getInstance();
                     firebaseDatabase = FirebaseDatabase.getInstance();
                     databaseReference = firebaseDatabase.getReference();
-                }catch(Exception e){
-                    Toast.makeText(Main2Activity.this,"Email already exists",Toast.LENGTH_LONG);
+                } catch (Exception e) {
+                    Toast.makeText(Main2Activity.this, "Email already exists", Toast.LENGTH_LONG);
                 }
 
                 // creating a user for authentication puropose
@@ -148,11 +159,10 @@ public class Main2Activity extends AppCompatActivity {
                             startActivity(new Intent(Main2Activity.this, MainActivity.class));
                             finish();
                         } else {
-                            Toast.makeText(Main2Activity.this, task.getException() + " error ", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Main2Activity.this, "Email address already used", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
-
 
 
             }
@@ -161,17 +171,42 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
+    // function to allow back click
 
     public void back(View view) {
-    startActivity(new Intent(Main2Activity.this,MainActivity.class));
+        startActivity(new Intent(Main2Activity.this, MainActivity.class));
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(Main2Activity.this, MainActivity.class));
         finish();
+
+    }
+
+    public void showpassword(View view) {
+
+        if (showpass) {
+
+            imageSwitcher.setBackground(getDrawable(R.drawable.hide));
+            imageSwitcher2.setBackground(getDrawable(R.drawable.hide));
+            // this enables changing the password filled in edit text
+            // changing only input type doesnot changes the text entered
+
+            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            password2.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            showpass = false;
+
+        } else {
+            imageSwitcher.setBackground(getDrawable(R.drawable.see));
+            imageSwitcher2.setBackground(getDrawable(R.drawable.see));
+            password.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            password2.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            showpass = true;
+        }
+
 
     }
 }

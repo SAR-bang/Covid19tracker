@@ -48,7 +48,12 @@
 
     </FrameLayout>
 
+        <ImageView
+            android:layout_height="250dp"
+            android:layout_width="match_parent"
+            android:src="@drawable/stay">
 
+        </ImageView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,7 +69,8 @@
         android:layout_marginTop="50dp"
         android:background="@color/colorBasic"
         android:text="साईन ईन गर्नुहोस्"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:elevation="10dp" />
 
         <TextView
             android:layout_marginTop="50dp"

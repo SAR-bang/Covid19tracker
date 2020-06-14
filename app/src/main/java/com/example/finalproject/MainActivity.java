@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         fauth = FirebaseAuth.getInstance();
+        checkbox = findViewById(R.id.checkbox);
 
         btn_signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,23 +58,24 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
 
+                                if (checkbox.isChecked()) {
+                                    // after the login is success ful then we create a shared preferances to store the data
+                                    sharedPreferences = getSharedPreferences(LoginPreferences, Context.MODE_PRIVATE);
+                                    // Saving the data in cache
 
-                                // after the login is success ful then we create a shared preferances to store the data
-                                sharedPreferences = getSharedPreferences(LoginPreferences, Context.MODE_PRIVATE);
-                                // Saving the data in cache
-
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString("username", username.getText().toString());
-                                editor.commit();
-                                //commit saves the data in the cache
-
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("username", username.getText().toString());
+                                    editor.commit();
+                                    //commit saves the data in the cache
+                                }
 
                                 startActivity(new Intent(MainActivity.this, Profile.class));
                                 finish();
 
                             } else {
-                                Toast.makeText(MainActivity.this, "Use correct credentials and check connection", Toast.LENGTH_SHORT);
+                                Toast.makeText(MainActivity.this, "Used correct credentials and check connection", Toast.LENGTH_LONG).show();
                             }
+
                         }
                     });
                 }
@@ -94,5 +96,10 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void forgotpassword(View view) {
+        // code to reset the password
+        startActivity(new Intent(this, Forgotpassword.class));
     }
 }

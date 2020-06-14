@@ -51,17 +51,17 @@
         android:id="@+id/password"/>
 
 
-    <CheckBox
-        android:id="@+id/checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:checked="true"
-        android:gravity="right"
-        android:text="Remember Password"
-        android:textColor="#ffff" />
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:checked="true"
+            android:gravity="right"
+            android:text="Remember Password"
+            android:textColor="#ffff" />
 
-    <Button
+        <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="sign in"
@@ -107,8 +107,8 @@
         android:layout_height="wrap_content"
         android:text="Forgot password"
         android:layout_gravity="center"
-        android:visibility="invisible"
-
+        android:visibility="visible"
+        android:onClick="forgotpassword"
         />
 
     </LinearLayout>

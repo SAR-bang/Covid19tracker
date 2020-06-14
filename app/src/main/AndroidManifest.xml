@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".News"></activity>
+        <activity android:name=".NewsDetail"></activity>
+        <activity android:name=".Forgotpassword" />
+        <activity android:name=".News" />
         <activity android:name=".Detailed" />
         <activity android:name=".Danger_area" />
         <activity android:name=".Profile" />
@@ -30,7 +32,10 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Main2Activity" />
 
-        <service android:name=".Aservice" />
+        <service
+            android:name=".Aservice"
+            android:enabled="true"
+            android:process=".Aservice" />
     </application>
 
 </manifest>

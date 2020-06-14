@@ -45,9 +45,11 @@ public class statisticsfragment extends Fragment {
     SwipeRefreshLayout swipeRefreshLayout;
     EditText etQuery;
     Button btnsearch, btnAboutUs;
+
     //    Dialog dialog;
     AdapterClas adapterClas;
     List<ApiModel> apiModelList = new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -161,13 +163,7 @@ public class statisticsfragment extends Fragment {
 
                 }
             });
-            //
-
-
         }
-
-
-
     }
 
 

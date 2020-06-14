@@ -32,6 +32,8 @@ public class Detailed extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         loader = findViewById(R.id.loader);
 
+
+        // getting the data from the previous intente
         Intent intent = getIntent();
         String country = intent.getStringExtra("country");
         String confirmed = intent.getStringExtra("confirmed");
@@ -43,7 +45,7 @@ public class Detailed extends AppCompatActivity {
         String test = intent.getStringExtra("tested");
 
 
-        // setting the text
+        // setting the text from the previous intent
 
         Activecases.setText(active);
         deathcases.setText(dead);
@@ -53,7 +55,9 @@ public class Detailed extends AppCompatActivity {
         tvconfirmed.setText(confirmed);
         tvtested.setText(test);
         Picasso.with(Detailed.this).load(flag).into(imageView);
+        loader.setEnabled(false);
 
+        // disabling the progress bar
 
     }
 }

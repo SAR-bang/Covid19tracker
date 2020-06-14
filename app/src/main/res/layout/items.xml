@@ -66,14 +66,14 @@
                     android:id="@+id/tvSource"/>
 
                 <TextView
+                    android:id="@+id/tvDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="5 hour ago"
-                    android:gravity="right"
-                    android:textSize="15dp"
                     android:fontFamily="@font/g_light"
+                    android:gravity="right"
+                    android:text="5 hour ago"
                     android:textColor="@color/white"
-                    android:id="@+id/tvDate"/>
+                    android:textSize="15dp" />
             </LinearLayout>
         </FrameLayout>
 

@@ -141,7 +141,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Danger Area"
+                android:text="My Status"
                 android:id="@+id/danger_text"
                 />
 
@@ -173,7 +173,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone doctor"
+                android:text="Chat with bot"
                 android:id="@+id/recommend_text"
                 />
 

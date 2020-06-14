@@ -22,7 +22,7 @@ android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="संसारभरि सक्रिय केसहरू"
+        android:text="संसारभरि संक्रमित"
         />
 
     <androidx.cardview.widget.CardView
@@ -42,10 +42,10 @@ android:layout_height="wrap_content"
                 android:src="@drawable/nepal" />
 
             <TextView
-                android:id="@+id/data_nepal"
+                android:id="@+id/data_death"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="60dp"
                 android:text="..."
                 android:layout_toRightOf="@+id/img"
@@ -55,12 +55,34 @@ android:layout_height="wrap_content"
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/data_nepal"
-                android:layout_marginLeft="100dp"
+                android:layout_below="@+id/data_death"
+                android:layout_marginLeft="40dp"
+                android:id="@+id/deathview"
                 android:layout_toRightOf="@+id/img"
-                android:text="सक्रिय केस"
+                android:text="मृत्यु"
                 android:textSize="20dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/data_nepal"
+
+                android:layout_marginLeft="51dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/deathview"
+                android:text="संक्रमित"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/data_nepal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="56dp"
+                android:layout_marginTop="60dp"
+                android:layout_toRightOf="@+id/data_death"
+                android:gravity="right"
+                android:text="..."
+                android:textSize="30dp" />
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
@@ -100,18 +122,17 @@ android:layout_height="wrap_content"
       android:layout_height="wrap_content"
       android:id="@+id/symptomsList"
       android:orientation="horizontal"
+      android:focusable="false"
       />
 
 
     <!--    code to use the imported data-->
 
-
-
-
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         />
+
 
 </LinearLayout>
 </ScrollView>

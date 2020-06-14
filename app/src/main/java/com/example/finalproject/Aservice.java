@@ -33,10 +33,8 @@ public class Aservice extends Service {
 
     SharedPreferences sharedPreferences;
     long newdata = 0;
-    long currentdata = 0;
     RequestQueue queue;
     String url;
-    long saveddata = 0;
 
     @Override
     public void onCreate() {
@@ -52,7 +50,7 @@ public class Aservice extends Service {
                 // when the data changes the notification is send to user
 
                 if (getdata() > 0) {
-                    notifyuser(saveddata - getdata());
+                    notifyuser(getdata());
                 }
             }
         }, 0, 1 * 10 * 1000);   // checks every 10 seconds
@@ -60,10 +58,7 @@ public class Aservice extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-
         newdata = getdata();
-        saveddata = newdata;
         notifyuser(newdata);
         // calling the method to notify user
 
@@ -77,14 +72,23 @@ public class Aservice extends Service {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(Aservice.this, "a");
         // channel id is required as passing only the service is deprecated
 
-        mBuilder.setContentTitle("New Cases are added");
-        mBuilder.setContentText("the new data is" + newdata);
+        mBuilder.setContentTitle("Corona nepal update");
+        newdata = getdata();
+
+        // if the data is changed then show above if case statement else else condition to be shown
+
+        if (newdata != 0) {
+            mBuilder.setContentText("the new data is" + newdata);
+        } else {
+            mBuilder.setContentText("No new case added");
+        }
         mBuilder.setSmallIcon(R.drawable.ic_notifications_active_black_24dp);
 
 
-        Intent resultIntent = new Intent(this, MainActivity.class);
+        // onclick notification the homepage activity is started
+        Intent resultIntent = new Intent(this, homePage.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addParentStack(homePage.class);
 
         // Adds the Intent that starts the Activity to the top of the stack
         stackBuilder.addNextIntent(resultIntent);
@@ -98,7 +102,10 @@ public class Aservice extends Service {
 
     long nu = 0;
 
+    // method to return the difference between saved data and new updated cases
+
     private long getdata() {
+        // using the combination of volley and gson to retrieve the data
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -110,6 +117,7 @@ public class Aservice extends Service {
                 String cases = apiModel.getCases().toString();
 
                 String Death = apiModel.getDeaths().toString();
+
 
                 sharedPreferences = getSharedPreferences("NepPrefs", Context.MODE_PRIVATE);
 
