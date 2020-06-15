@@ -7,12 +7,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.widget.Toast;
-
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -22,7 +18,7 @@ public class News extends AppCompatActivity {
 
     RecyclerView rv;
     String url = "https://nepalcorona.info/api/v1/";
-    private adapterNews adapterClas;
+    private adapterNews adapterNews;
 
 
     @Override
@@ -54,8 +50,8 @@ public class News extends AppCompatActivity {
             public void onResponse(Call<News2Model> call, retrofit2.Response<News2Model> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     News2Model news2Model = response.body();
-                    adapterClas = new adapterNews(getApplicationContext(), news2Model);
-                    rv.setAdapter(adapterClas);
+                    adapterNews = new adapterNews(getApplicationContext(), news2Model);
+                    rv.setAdapter(adapterNews);
                 }
             }
 

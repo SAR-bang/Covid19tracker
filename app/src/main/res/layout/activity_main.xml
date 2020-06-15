@@ -19,8 +19,8 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginBottom="80dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/police"
         android:id="@+id/login"
         android:layout_marginLeft="60dp"

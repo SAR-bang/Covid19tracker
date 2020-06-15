@@ -33,7 +33,6 @@ public class Aservice extends Service {
     private Timer timer = new Timer();
     // to check the app contiuosly
 
-
     SharedPreferences sharedPreferences;
     long newdata = 0;
     RequestQueue queue;
@@ -126,18 +125,26 @@ public class Aservice extends Service {
 
                 sharedPreferences = getSharedPreferences("NepPrefs", Context.MODE_PRIVATE);
 
+                long difference;
                 // retrieving the data from cache to notify user if data is added
+                try {
 
-                long difference = Long.parseLong(sharedPreferences.getString("Confirmed", "")) - apiModel.getCases();
-
+                    difference = Long.parseLong(sharedPreferences.getString("beforenotify", "")) - apiModel.getCases();
+                } catch (Exception e) {
+                    difference = 0;
+                }
                 if (difference > 0) {
                     nu = difference;
                     newdata = apiModel.getCases();
+                    // only updates here
+                    sharedPreferences = getSharedPreferences("NepPrefs", Context.MODE_PRIVATE);
                     // Saving the data in cache
                     SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("beforenotify", String.valueOf(newdata));
+                    editor.commit();
+                    // commit saves the data
 
-                    editor.putString("Confirmed", cases);
-                    editor.commit();     //commit saves the data in the cache
+
                 } else {
                     newdata = apiModel.getCases();
                 }

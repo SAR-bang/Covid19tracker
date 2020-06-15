@@ -23,6 +23,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 public class Danger_area extends AppCompatActivity {
 
 
@@ -43,7 +46,12 @@ public class Danger_area extends AppCompatActivity {
         cardView = findViewById(R.id.userstatus);
 
 
-        sp = getSharedPreferences("district", Context.MODE_PRIVATE);
+        adaptercontact adaptercontact = new adaptercontact(this, tag, number);
+        list = findViewById(R.id.contact_id);
+        list.setAdapter(adaptercontact);
+
+        sp = getSharedPreferences("login", Context.MODE_PRIVATE);
+
         String zone = sp.getString("sign", "");
 
 
@@ -60,10 +68,6 @@ public class Danger_area extends AppCompatActivity {
             status.setText(R.string.safe);
             cardView.setCardBackgroundColor(getColor(R.color.green));
         }
-
-        adaptercontact adaptercontact = new adaptercontact(this, tag, number);
-        list = findViewById(R.id.contact_id);
-        list.setAdapter(adaptercontact);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -119,4 +123,6 @@ public class Danger_area extends AppCompatActivity {
         }
 
     }
+
+
 }

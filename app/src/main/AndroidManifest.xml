@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:windowSoftInputMode="adjustResize">
+        <activity android:name=".Trackuser"></activity>
         <activity android:name=".NewsDetail" />
         <activity android:name=".Forgotpassword" />
         <activity android:name=".News" />

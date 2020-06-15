@@ -48,39 +48,42 @@ public class MainActivity extends AppCompatActivity {
         btn_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // check the valye  in database
-                if (username.getText().toString().equals("") || password.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, "No null accepted", Toast.LENGTH_SHORT).show();
-                } else {
-
-                    fauth.signInWithEmailAndPassword(username.getText().toString().trim(), password.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-
-                                if (checkbox.isChecked()) {
-                                    // after the login is success ful then we create a shared preferances to store the data
-                                    sharedPreferences = getSharedPreferences(LoginPreferences, Context.MODE_PRIVATE);
-                                    // Saving the data in cache
-
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("username", username.getText().toString());
-                                    editor.commit();
-                                    //commit saves the data in the cache
-                                }
-
-                                startActivity(new Intent(MainActivity.this, Profile.class));
-                                finish();
-
-                            } else {
-                                Toast.makeText(MainActivity.this, "Used correct credentials and check connection", Toast.LENGTH_LONG).show();
-                            }
-
-                        }
-                    });
+                // check the value  in database
+                if (username.getText().toString().isEmpty()) {
+                    username.setError("No null accepted");
+                    return;
                 }
 
+                if (password.getText().toString().isEmpty()) {
+                    password.setError("No null password allowed");
+                    return;
+                }
 
+                fauth.signInWithEmailAndPassword(username.getText().toString().trim(), password.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+
+                            if (checkbox.isChecked()) {
+                                // after the login is success ful then we create a shared preferances to store the data
+                                sharedPreferences = getSharedPreferences(LoginPreferences, Context.MODE_PRIVATE);
+                                // Saving the data in cache
+
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("username", username.getText().toString());
+                                editor.commit();
+                                //commit saves the data in the cache
+                            }
+
+                            startActivity(new Intent(MainActivity.this, Profile.class));
+                            finish();
+
+                        } else {
+                            Toast.makeText(MainActivity.this, "Used correct credentials and check connection", Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
             }
         });
 

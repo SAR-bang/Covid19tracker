@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,166 +10,171 @@
     tools:context=".Main2Activity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:background="@drawable/back"
-            android:onClick="back" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="70dp"
-            android:text="Register me"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <Button
+                android:layout_width="66dp"
+                android:layout_height="66dp"
+                android:background="@drawable/back"
+                android:onClick="back" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="250dp"
-        app:cardElevation="4dp"
-        app:cardBackgroundColor="@color/grey2">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="70dp"
+                android:text="Register me"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-        <GridLayout
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:columnCount="1"
-            android:rowCount="5"
-            android:layout_marginBottom="30dp">
+            android:padding="250dp"
+            app:cardBackgroundColor="@color/grey2"
+            app:cardElevation="4dp">
 
-            <TextView
-                android:text="Full Name"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="8dp" />
-
-            <EditText
-                android:id="@+id/full_name"
+            <GridLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/editt"
-                android:inputType="text" />
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="30dp"
+                android:columnCount="1"
+                android:rowCount="5">
 
-            <TextView
-                android:text="Date of birth"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="8dp" />
-
-            <EditText
-                android:id="@+id/dateEdit"
-                android:layout_height="wrap_content"
-                android:focusable="false"
-                android:inputType="date"
-                android:background="@drawable/editt" />
-
-
-            <TextView
-                android:text="Email address"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="15dp" />
-
-
-            <EditText
-                android:id="@+id/username"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:background="@drawable/editt" />
-
-            <TextView
-                android:text="Enter password"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="8dp" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Full Name"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/password_btn"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/full_name"
                     android:layout_height="wrap_content"
                     android:background="@drawable/editt"
-                    android:inputType="textPassword" />
+                    android:inputType="text" />
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="240dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignBottom="@+id/password_btn"
-                    android:layout_alignTop="@+id/password_btn"
-                    android:background="@drawable/see"
-                    android:id="@+id/imageswitcher_1"
-                    android:onClick="showpassword" />
-            </RelativeLayout>
-
-
-            <TextView
-                android:text="Re-enter password"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="15dp" />
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Date of birth"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/password_btn2"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/dateEdit"
                     android:layout_height="wrap_content"
                     android:background="@drawable/editt"
-                    android:inputType="textPassword" />
+                    android:focusable="false"
+                    android:inputType="date" />
 
-                <ImageButton
-                    android:layout_width="wrap_content"
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Email address"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/username"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="240dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignBottom="@+id/password_btn2"
-                    android:layout_alignTop="@+id/password_btn2"
-                    android:background="@drawable/see"
-                    android:id="@+id/imageswitcher_2"
-                    android:onClick="showpassword" />
-            </RelativeLayout>
+                    android:background="@drawable/editt"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Enter password"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/password_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/editt"
+                        android:inputType="textPassword" />
+
+                    <ImageButton
+                        android:id="@+id/imageswitcher_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/password_btn"
+                        android:layout_alignBottom="@+id/password_btn"
+                        android:layout_marginLeft="240dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/see"
+                        android:onClick="showpassword" />
+                </RelativeLayout>
 
 
-        </GridLayout>
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/signup_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/shapelogin"
-        android:text="Sign up"
-        android:textColor="#fff" />
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Re-enter password"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
 
 
-</LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/password_btn2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/editt"
+                        android:inputType="textPassword" />
+
+                    <ImageButton
+                        android:id="@+id/imageswitcher_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/password_btn2"
+                        android:layout_alignBottom="@+id/password_btn2"
+                        android:layout_marginLeft="240dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/see"
+                        android:onClick="showpassword" />
+                </RelativeLayout>
+
+
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/signup_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shapelogin"
+            android:text="Sign up"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+</ScrollView>

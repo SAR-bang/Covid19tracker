@@ -57,6 +57,7 @@ public class Main2Activity extends AppCompatActivity {
 
         date = findViewById(R.id.dateEdit);
         final Calendar myCalendar = Calendar.getInstance();
+
         final DatePickerDialog.OnDateSetListener datelsnr = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -67,7 +68,7 @@ public class Main2Activity extends AppCompatActivity {
             }
 
             private void updateLabel() {
-                String format = "MM/DD/YY";
+                String format = "DD/MM/YY";
                 SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.getDefault());
                 date.setText(sdf.format(myCalendar.getTime()));
             }
@@ -137,7 +138,7 @@ public class Main2Activity extends AppCompatActivity {
 
                     mAuth = FirebaseAuth.getInstance();
                     firebaseDatabase = FirebaseDatabase.getInstance();
-                    databaseReference = firebaseDatabase.getReference();
+                    databaseReference = firebaseDatabase.getReference("user");
                 } catch (Exception e) {
                     Toast.makeText(Main2Activity.this, "Email already exists", Toast.LENGTH_LONG);
                 }
@@ -148,13 +149,14 @@ public class Main2Activity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
                             // sign in success, redirecting to sign in page
                             Toast.makeText(Main2Activity.this, "Registration complete.",
                                     Toast.LENGTH_SHORT).show();
 
 
-                            databaseReference.child(mAuth.getCurrentUser().getUid()).child("username/email").setValue(username_save);
-                            databaseReference.child(mAuth.getCurrentUser().getUid()).child("Name").setValue(Name);
+                            User user = new User(Name, username_save, date.getText().toString());
+                            databaseReference.child(mAuth.getCurrentUser().getUid()).setValue(user);
 
                             startActivity(new Intent(Main2Activity.this, MainActivity.class));
                             finish();

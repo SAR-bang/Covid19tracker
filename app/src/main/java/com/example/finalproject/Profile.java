@@ -1,6 +1,7 @@
 package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,9 +9,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
-
-import com.applozic.mobicommons.commons.core.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +22,12 @@ import io.kommunicate.users.KMUser;
 
 public class Profile extends AppCompatActivity {
 
-    private TextView textView_load;
-    private TextView loadNews;
-    private TextView danger_area;
-    private TextView logout;
-    private TextView recommend_text;
+    private CardView CardView_load;
+    private CardView loadNews;
+    private CardView danger_area;
+    private CardView logout;
+    private CardView recommend_text;
+    private CardView track_victim;
 
 
     SharedPreferences sharedPreferences;
@@ -38,9 +37,10 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        textView_load = findViewById(R.id.load_text);
+        CardView_load = findViewById(R.id.load_text);
         logout = findViewById(R.id.logout_text);
         recommend_text = findViewById(R.id.recommend_text);
+        track_victim = findViewById(R.id.track_text);
 
 
         logout.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +57,7 @@ public class Profile extends AppCompatActivity {
         });
 
 
-        textView_load.setOnClickListener(new View.OnClickListener() {
+        CardView_load.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Profile.this, homePage.class));
@@ -145,6 +145,13 @@ public class Profile extends AppCompatActivity {
                         });
 
 
+            }
+        });
+
+        track_victim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile.this, Trackuser.class));
             }
         });
     }

@@ -13,9 +13,10 @@ import com.squareup.picasso.Picasso;
 
 public class NewsDetail extends AppCompatActivity {
 
-    ImageView imageView;
+    ImageView imageView, imageBack, imagemenu;
     TextView tv_source, tv_date, tv_summary, tv_title;
     ProgressBar bar;
+
 
 
     @Override
@@ -30,6 +31,9 @@ public class NewsDetail extends AppCompatActivity {
         tv_summary = findViewById(R.id.tvDesc);
         tv_title = findViewById(R.id.tvTitle);
         imageView = findViewById(R.id.imageView);
+        imageBack = findViewById(R.id.imageback);
+        imagemenu = findViewById(R.id.menubtn);
+
         bar = findViewById(R.id.loader);
 
         // extracting the data send from previous intent
@@ -48,16 +52,22 @@ public class NewsDetail extends AppCompatActivity {
         tv_source.setText(source);
         Picasso.with(NewsDetail.this).load(imageurl).into(imageView);
         bar.setEnabled(false);
+
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewsDetail.this, News.class));
+            }
+        });
+
+        imagemenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewsDetail.this, Profile.class));
+            }
+        });
+
     }
 
-
-    public void menu(View view) {
-        startActivity(new Intent(NewsDetail.this, Profile.class));
-    }
-
-
-    public void back(View view) {
-        startActivity(new Intent(NewsDetail.this, News.class));
-    }
 
 }

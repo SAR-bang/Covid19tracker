@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -54,20 +55,24 @@ public class adapterNews extends RecyclerView.Adapter<adapterNews.ViewHolder> {
         holder.source.setText(newsModel.getSource());
         holder.date.setText(newsModel.getCreatedAt());
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // passing the data between the intents
+        try {
+            holder.card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // passing the data between the intents
 
-                Intent intent = new Intent(context, NewsDetail.class);
-                intent.putExtra("Source", newsModel.getSource());
-                intent.putExtra("date", newsModel.getCreatedAt());
-                intent.putExtra("image", newsModel.getImageUrl());
-                intent.putExtra("Title", newsModel.getTitle());
-                intent.putExtra("summary", newsModel.getSummary());
-                context.startActivity(intent);
-            }
-        });
+                    Intent intent = new Intent(context, NewsDetail.class);
+                    intent.putExtra("Source", newsModel.getSource());
+                    intent.putExtra("date", newsModel.getCreatedAt());
+                    intent.putExtra("image", newsModel.getImageUrl());
+                    intent.putExtra("Title", newsModel.getTitle());
+                    intent.putExtra("summary", newsModel.getSummary());
+                    context.startActivity(intent);
+                }
+            });
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -79,7 +84,7 @@ public class adapterNews extends RecyclerView.Adapter<adapterNews.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView country, source, date;
-        CardView cardView;
+        CardView card;
         ImageView imageCountry;
 
 
@@ -89,7 +94,7 @@ public class adapterNews extends RecyclerView.Adapter<adapterNews.ViewHolder> {
             super(itemView);
             country = itemView.findViewById(R.id.tvTitle);
             imageCountry = itemView.findViewById(R.id.image_country);
-            cardView = itemView.findViewById(R.id.cardView);
+            card = itemView.findViewById(R.id.cardView);
             source = itemView.findViewById(R.id.tvSource);
             date = itemView.findViewById(R.id.tvDate);
 

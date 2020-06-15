@@ -31,7 +31,7 @@ public class Detailed extends AppCompatActivity {
 
         tvcountry = findViewById(R.id.tvCountry);
         imageView = findViewById(R.id.imageView);
-        loader = findViewById(R.id.loader);
+        loader = findViewById(R.id.loader2);
 
 
         // getting the data from the previous intente
@@ -55,8 +55,9 @@ public class Detailed extends AppCompatActivity {
         tvcritical.setText(critical);
         tvconfirmed.setText(confirmed);
         tvtested.setText(test);
-        Picasso.with(Detailed.this).load(flag).into(imageView);
         loader.setEnabled(false);
+        Picasso.with(Detailed.this).load(flag).into(imageView);
+
 
         // disabling the progress bar
 

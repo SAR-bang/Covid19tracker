@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Trackuser">
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/back" />
+
+    <TextView
+        style="@style/KmAssigneeNameBold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:text="Track my location"
+        android:textColor="@color/primary_dark_color"
+        android:textSize="25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp">
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbarFadeDuration="1"
+            android:id="@+id/switchButton"
+            android:shadowColor="@color/primary_dark_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Include municipality" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Referencing name "
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="*generated for patients"
+            android:textColor="#F85D5D" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/reference_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:drawableRight="@drawable/ic_account_circle_black_24dp"
+        android:hint="Enter the referencing name" />
+
+    <TextView
+        android:id="@+id/municaplitylabel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Municipality"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/municipality_id"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawableRight="@drawable/ic_gps_fixed_black_24dp"
+        android:hint="Enter the name of municipality"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:text="District"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/district_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:drawableRight="@drawable/ic_gps_fixed_black_24dp"
+        android:hint="Enter the name of the District" />
+
+
+    <TextView
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:textColor="#fff"
+        android:text="Record my location"
+        android:background="#6A6EBA"
+        android:drawableRight="@drawable/submit"
+        android:textStyle="bold"
+        android:id="@+id/btn_submit" />
+
+</LinearLayout>
